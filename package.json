@@ -9,8 +9,8 @@
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
     "build:main": "babel --out-dir dist src",
-    "build:umd": "webpack --output-filename thrux.umd.js",
-    "build:umd.min": "webpack --output-filename thrux.umd.min.js -p"
+    "build:umd": "webpack --output-filename react-thrux.umd.js",
+    "build:umd.min": "webpack --output-filename react-thrux.umd.min.js -p"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,7 @@
   "babel": {
     "presets": [
       "es2015",
-      "stage-2",
-      "react"
+      "stage-2"
     ]
   },
   "keywords": [
