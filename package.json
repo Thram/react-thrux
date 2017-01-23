@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/Thram/react-thrux#readme",
   "dependencies": {
-    "thrux": "^2.1.3"
+    "thrux": "^2.1.4"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
