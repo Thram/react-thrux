@@ -20,6 +20,20 @@ Param | Type | Description
 stateKey | String | Name of the state you want to connect your component with
 ReactComponent | [Object] / [Class] | React Component object
 
+`registers.js`
+```javascript
+import {register, createDict} from "thrux";
+
+register({
+  counter: {
+    INCREASE: createDict((payload, state) => (state || 0) + 1),
+    DECREASE: createDict((payload, state) => (state > 0) ? state - 1 : 0),
+    RESET   : createDict((payload, state) => 0)
+  }
+});
+```
+
+`Example.jsx`
 ```javascript
 import React, {Component} from "react";
 import {dispatch} from "thrux";
