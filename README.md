@@ -5,7 +5,7 @@
 [![downloads](https://img.shields.io/npm/dm/react-thrux.svg?style=flat-square)](https://www.npmjs.com/package/react-thrux)
 [![MIT License](https://img.shields.io/npm/l/react-thrux.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-Connect Thrux state to a React component.
+Connect [Thrux](https://github.com/Thram/thrux) state to a React component.
 
 ## API
 
