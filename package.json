@@ -18,8 +18,7 @@
   },
   "babel": {
     "presets": [
-      "es2015",
-      "stage-2"
+      "es2015"
     ]
   },
   "keywords": [
@@ -34,7 +33,7 @@
   },
   "homepage": "https://github.com/Thram/react-thrux#readme",
   "dependencies": {
-    "thrux": "^2.2.1"
+    "thrux": "^2.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -42,7 +41,6 @@
     "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.22.0",
-    "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
     "commitizen": "^2.9.5",
     "cz-conventional-changelog": "^1.2.0",
