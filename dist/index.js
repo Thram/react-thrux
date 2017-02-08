@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.connect = undefined;
 
+var _assign = require("lodash/assign");
+
+var _assign2 = _interopRequireDefault(_assign);
+
 var _isArray = require("lodash/isArray");
 
 var _isArray2 = _interopRequireDefault(_isArray);
@@ -31,7 +35,7 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
 
       var _this = _possibleConstructorReturn(this, (ThruxComponent.__proto__ || Object.getPrototypeOf(ThruxComponent)).call(this, props));
 
-      _this.state = (0, _thrux.state)([].concat(stateKey));
+      _this.state = (0, _assign2.default)(_this.state || {}, (0, _thrux.state)([].concat(stateKey)));
 
       var addObserver = function addObserver(key) {
         return (0, _thrux.observe)(key, function (state) {

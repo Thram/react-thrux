@@ -1,6 +1,7 @@
 /**
  * Created by thram on 21/01/17.
  */
+import assign from "lodash/assign";
 import isArray from "lodash/isArray";
 import {observe, state} from "thrux";
 
@@ -9,7 +10,7 @@ export const connect = (stateKey, ReactComponent) => {
     constructor(props) {
       super(props);
 
-      this.state = state([].concat(stateKey));
+      this.state = assign(this.state || {}, state([].concat(stateKey)));
 
       const addObserver = (key) => observe(key, (state) => {
         const newState = {};
