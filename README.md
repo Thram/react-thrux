@@ -9,7 +9,7 @@ Connect [Thrux](https://github.com/Thram/thrux) state to a React component.
 
 ## API
 
-#### connect(stateKey, ReactComponent)
+#### connect(stateKey *[stateKey,...]*, ReactComponent)
 
 Register your dictionaries.
 
@@ -17,7 +17,7 @@ Register your dictionaries.
 
 Param | Type | Description
 ----- | ---- | -----------
-stateKey | String | Name of the state you want to connect your component with
+stateKey | String/[Array of Strings] | Name(s) of the state(s) you want to connect your component with
 ReactComponent | [Object] / [Class] | React Component object
 
 `registers.js`

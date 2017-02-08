@@ -5,7 +5,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.connect = undefined;
 
+var _forEach = require("lodash/forEach");
+
+var _forEach2 = _interopRequireDefault(_forEach);
+
+var _isArray = require("lodash/isArray");
+
+var _isArray2 = _interopRequireDefault(_isArray);
+
 var _thrux = require("thrux");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25,11 +35,15 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
 
       var _this = _possibleConstructorReturn(this, (ThruxComponent.__proto__ || Object.getPrototypeOf(ThruxComponent)).call(this, props));
 
-      (0, _thrux.observe)(stateKey, function (state) {
-        var newState = {};
-        newState[stateKey] = state;
-        _this.setState(newState);
-      });
+      var addObserver = function addObserver(key) {
+        return (0, _thrux.observe)(key, function (state) {
+          var newState = {};
+          newState[key] = state;
+          _this.setState(newState);
+        });
+      };
+
+      (0, _isArray2.default)(stateKey) ? (0, _forEach2.default)(stateKey, addObserver) : addObserver(stateKey);
       return _this;
     }
 

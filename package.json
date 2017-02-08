@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/Thram/react-thrux#readme",
   "dependencies": {
-    "thrux": "^2.3.0"
+    "lodash": "^4.17.4",
+    "thrux": "^2.3.5"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -44,7 +45,7 @@
     "rimraf": "^2.5.4",
     "semantic-release": "^6.3.2",
     "umd": "^3.0.1",
-    "webpack": "^1.14.0"
+    "webpack": "^2.2.1"
   },
   "config": {
     "commitizen": {
