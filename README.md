@@ -17,8 +17,8 @@ Register your dictionaries.
 
 Param | Type | Description
 ----- | ---- | -----------
-stateKey | String/[Array of Strings] | Name(s) of the state(s) you want to connect your component with
-ReactComponent | [Object] / [Class] | React Component object
+stateKey | String [Array of Strings] | Name(s) of the state(s) you want to connect your component with
+ReactComponent | [Function] / [Class] | React Component
 
 `registers.js`
 ```javascript
@@ -26,6 +26,7 @@ import {register, createDict} from "thrux";
 
 register({
   counter: {
+    INIT    : createDict(() => 0),
     INCREASE: createDict((payload, state) => (state || 0) + 1),
     DECREASE: createDict((payload, state) => (state > 0) ? state - 1 : 0),
     RESET   : createDict((payload, state) => 0)
@@ -41,10 +42,6 @@ import {connect} from "react-thrux";
 
 
 class Example extends Component {
-  state = {
-    counter: 0
-  };
-
   onIncrease = () => dispatch('counter:INCREASE');
   onDecrease = () => dispatch('counter:DECREASE');
   onReset    = () => dispatch('counter:RESET');

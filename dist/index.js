@@ -5,10 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.connect = undefined;
 
-var _forEach = require("lodash/forEach");
-
-var _forEach2 = _interopRequireDefault(_forEach);
-
 var _isArray = require("lodash/isArray");
 
 var _isArray2 = _interopRequireDefault(_isArray);
@@ -35,6 +31,8 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
 
       var _this = _possibleConstructorReturn(this, (ThruxComponent.__proto__ || Object.getPrototypeOf(ThruxComponent)).call(this, props));
 
+      _this.state = (0, _thrux.state)([].concat(stateKey));
+
       var addObserver = function addObserver(key) {
         return (0, _thrux.observe)(key, function (state) {
           var newState = {};
@@ -43,7 +41,7 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
         });
       };
 
-      (0, _isArray2.default)(stateKey) ? (0, _forEach2.default)(stateKey, addObserver) : addObserver(stateKey);
+      (0, _isArray2.default)(stateKey) ? stateKey.forEach(addObserver) : addObserver(stateKey);
       return _this;
     }
 

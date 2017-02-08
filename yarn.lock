@@ -3322,9 +3322,9 @@ through@2, through@^2.3.6, through@~2.3, through@~2.3.1:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
-thrux@^2.3.5:
-  version "2.3.5"
-  resolved "https://registry.yarnpkg.com/thrux/-/thrux-2.3.5.tgz#f5eb97afd48d546b9a56f38c82283503c79b4320"
+thrux@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/thrux/-/thrux-2.4.1.tgz#c9bbc226a541b4c1d0fb79fb42c442e5879cc2e0"
   dependencies:
     lodash "^4.17.4"
 
