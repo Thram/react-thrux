@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["react-thrux"] = factory();
+		exports["ReactThrux"] = factory();
 	else
-		root["react-thrux"] = factory();
+		root["ReactThrux"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -6510,7 +6510,7 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
           args[_key] = arguments[_key];
         }
 
-        _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentDidMount", this).apply(this, args);
+        _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentDidMount", this) && _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentDidMount", this).apply(this, args);
       }
     }, {
       key: "componentWillUnmount",
@@ -6519,7 +6519,7 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
           args[_key2] = arguments[_key2];
         }
 
-        _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentWillUnmount", this).apply(this, args);
+        _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentWillUnmount", this) && _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentWillUnmount", this).apply(this, args);
         (0, _forEach2.default)(this.observers, function (observer, key) {
           return (0, _thrux.removeObserver)(key, observer);
         });
