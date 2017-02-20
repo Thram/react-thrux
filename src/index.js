@@ -27,11 +27,11 @@ export const connect = (stateKey, ReactComponent) => {
 
     componentDidMount(...args) {
       isArray(stateKey) ? forEach(stateKey, this.addObserver) : this.addObserver(stateKey);
-      super.componentDidMount.apply(this, args);
+      super.componentDidMount && super.componentDidMount.apply(this, args);
     }
 
     componentWillUnmount(...args) {
-      super.componentWillUnmount.apply(this, args);
+      super.componentWillUnmount && super.componentWillUnmount.apply(this, args);
       forEach(this.observers, (observer, key) => removeObserver(key, observer));
     }
   }
