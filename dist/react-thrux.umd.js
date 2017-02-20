@@ -6493,6 +6493,10 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
         (0, _thrux.observe)(key, _this.observers[key]);
       };
 
+      _this.componentDidMount = function () {
+        return (0, _isArray2.default)(stateKey) ? (0, _forEach2.default)(stateKey, _this.addObserver) : _this.addObserver(stateKey);
+      };
+
       _this.componentWillUnmount = function () {
         return (0, _forEach2.default)(_this.observers, function (observer, key) {
           return (0, _thrux.removeObserver)(key, observer);
@@ -6500,7 +6504,6 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
       };
 
       _this.state = (0, _assign2.default)(_this.state || {}, (0, _thrux.state)([].concat(stateKey)));
-      (0, _isArray2.default)(stateKey) ? (0, _forEach2.default)(stateKey, _this.addObserver) : _this.addObserver(stateKey);
       return _this;
     }
 

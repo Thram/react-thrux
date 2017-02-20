@@ -14,7 +14,6 @@ export const connect = (stateKey, ReactComponent) => {
     constructor(props) {
       super(props);
       this.state = assign(this.state || {}, state([].concat(stateKey)));
-      isArray(stateKey) ? forEach(stateKey, this.addObserver) : this.addObserver(stateKey);
     }
 
     addObserver = (key) => {
@@ -25,6 +24,8 @@ export const connect = (stateKey, ReactComponent) => {
       };
       observe(key, this.observers[key]);
     };
+
+    componentDidMount = () => isArray(stateKey) ? forEach(stateKey, this.addObserver) : this.addObserver(stateKey);
 
     componentWillUnmount = () => forEach(this.observers, (observer, key) => removeObserver(key, observer));
   }
