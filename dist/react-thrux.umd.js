@@ -6448,6 +6448,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.connect = undefined;
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
 var _forEach = __webpack_require__(67);
 
 var _forEach2 = _interopRequireDefault(_forEach);
@@ -6493,19 +6497,33 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
         (0, _thrux.observe)(key, _this.observers[key]);
       };
 
-      _this.componentDidMount = function () {
-        return (0, _isArray2.default)(stateKey) ? (0, _forEach2.default)(stateKey, _this.addObserver) : _this.addObserver(stateKey);
-      };
-
-      _this.componentWillUnmount = function () {
-        return (0, _forEach2.default)(_this.observers, function (observer, key) {
-          return (0, _thrux.removeObserver)(key, observer);
-        });
-      };
-
       _this.state = (0, _assign2.default)(_this.state || {}, (0, _thrux.state)([].concat(stateKey)));
       return _this;
     }
+
+    _createClass(ThruxComponent, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentDidMount", this).apply(this, args);
+        (0, _isArray2.default)(stateKey) ? (0, _forEach2.default)(stateKey, this.addObserver) : this.addObserver(stateKey);
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function componentWillUnmount() {
+        for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+          args[_key2] = arguments[_key2];
+        }
+
+        _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentWillUnmount", this).apply(this, args);
+        (0, _forEach2.default)(this.observers, function (observer, key) {
+          return (0, _thrux.removeObserver)(key, observer);
+        });
+      }
+    }]);
 
     return ThruxComponent;
   }(ReactComponent);

@@ -25,9 +25,15 @@ export const connect = (stateKey, ReactComponent) => {
       observe(key, this.observers[key]);
     };
 
-    componentDidMount = () => isArray(stateKey) ? forEach(stateKey, this.addObserver) : this.addObserver(stateKey);
+    componentDidMount(...args) {
+      super.componentDidMount.apply(this, args);
+      isArray(stateKey) ? forEach(stateKey, this.addObserver) : this.addObserver(stateKey);
+    }
 
-    componentWillUnmount = () => forEach(this.observers, (observer, key) => removeObserver(key, observer));
+    componentWillUnmount(...args) {
+      super.componentWillUnmount.apply(this, args);
+      forEach(this.observers, (observer, key) => removeObserver(key, observer));
+    }
   }
   return ThruxComponent;
 };
