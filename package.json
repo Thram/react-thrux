@@ -42,7 +42,7 @@
     "cz-conventional-changelog": "^1.2.0",
     "ghooks": "^2.0.0",
     "npm-run-all": "^4.0.1",
-    "rimraf": "^2.5.4",
+    "rimraf": "^2.6.0",
     "semantic-release": "^6.3.2",
     "umd": "^3.0.1",
     "webpack": "^2.2.1"
