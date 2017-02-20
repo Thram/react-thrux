@@ -6504,12 +6504,13 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
     _createClass(ThruxComponent, [{
       key: "componentDidMount",
       value: function componentDidMount() {
+        (0, _isArray2.default)(stateKey) ? (0, _forEach2.default)(stateKey, this.addObserver) : this.addObserver(stateKey);
+
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
         }
 
         _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentDidMount", this).apply(this, args);
-        (0, _isArray2.default)(stateKey) ? (0, _forEach2.default)(stateKey, this.addObserver) : this.addObserver(stateKey);
       }
     }, {
       key: "componentWillUnmount",
