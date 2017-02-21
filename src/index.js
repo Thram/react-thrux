@@ -31,8 +31,9 @@ export const connect = (stateKey, ReactComponent) => {
     }
 
     componentWillUnmount(...args) {
-      super.componentWillUnmount && super.componentWillUnmount.apply(this, args);
       forEach(this.observers, (observer, key) => removeObserver(key, observer));
+      this.observers = {};
+      super.componentWillUnmount && super.componentWillUnmount.apply(this, args);
     }
   }
   return ThruxComponent;

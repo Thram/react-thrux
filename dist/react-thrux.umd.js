@@ -6515,14 +6515,16 @@ var connect = exports.connect = function connect(stateKey, ReactComponent) {
     }, {
       key: "componentWillUnmount",
       value: function componentWillUnmount() {
+        (0, _forEach2.default)(this.observers, function (observer, key) {
+          return (0, _thrux.removeObserver)(key, observer);
+        });
+        this.observers = {};
+
         for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
           args[_key2] = arguments[_key2];
         }
 
         _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentWillUnmount", this) && _get(ThruxComponent.prototype.__proto__ || Object.getPrototypeOf(ThruxComponent.prototype), "componentWillUnmount", this).apply(this, args);
-        (0, _forEach2.default)(this.observers, function (observer, key) {
-          return (0, _thrux.removeObserver)(key, observer);
-        });
       }
     }]);
 
