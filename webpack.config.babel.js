@@ -13,6 +13,9 @@ export default {
     library      : 'ReactThrux',
   },
   devtool: 'source-map',
+  externals: {
+    thrux: 'thrux'
+  },
   module : {
     loaders: [
       {test: /\.js$/, loader: 'babel-loader', include}
