@@ -57,7 +57,7 @@ class Example extends Component {
             <button id="reset" onClick={this.onReset}>Reset</button>
           </div>
           <div style={styles.column}>
-            Clicks: <span>{this.state.counter}</span>
+            Clicks: <span>{this.props.counter}</span>
           </div>
         </div>
     )

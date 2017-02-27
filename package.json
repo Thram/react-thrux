@@ -29,6 +29,7 @@
   "homepage": "https://github.com/Thram/react-thrux#readme",
   "dependencies": {
     "lodash": "^4.17.4",
+    "react": "^15.4.2",
     "thrux": "^2.5.4"
   },
   "devDependencies": {
