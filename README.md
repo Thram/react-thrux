@@ -9,7 +9,7 @@ Connect [Thrux](https://github.com/Thram/thrux) state to a React component.
 
 ## API
 
-#### connect(stateKey *[stateKey,...]*, ReactComponent)
+#### connect(stateKey *[stateKey,...]*, ReactComponent, map[s])
 
 Register your dictionaries.
 
@@ -19,6 +19,7 @@ Param | Type | Description
 ----- | ---- | -----------
 stateKey | String [Array of Strings] | Name(s) of the state(s) you want to connect your component with
 ReactComponent | [Function] / [Class] | React Component
+map[s] | [Function] / [Object] | *(optional)* Map(s) to sanitize the values passed to the component 
 
 `registers.js`
 ```javascript
@@ -27,6 +28,7 @@ import {register, createDict} from "thrux";
 register({
   counter: {
     INIT    : createDict(() => 0),
+    TEST    : createDict((payload, {value}) => ({value, test: payload})),
     INCREASE: createDict((payload, state) => (state || 0) + 1),
     DECREASE: createDict((payload, state) => (state > 0) ? state - 1 : 0),
     RESET   : createDict((payload, state) => 0)
@@ -34,30 +36,51 @@ register({
 });
 ```
 
-`Example.jsx`
+`Counter.jsx`
 ```javascript
+/**
+ * Created by thram on 21/01/17.
+ */
 import React, {Component} from "react";
-import {dispatch} from "thrux";
+import {dispatch, initState} from "thrux";
 import {connect} from "react-thrux";
 
 
-class Example extends Component {
-  onIncrease = () => dispatch('counter:INCREASE');
-  onDecrease = () => dispatch('counter:DECREASE');
-  onReset    = () => dispatch('counter:RESET');
+class Counter extends Component {
+  onIncrease = () =>
+      dispatch([
+        'counter:INCREASE',
+        'counter2:INCREASE'
+      ]);
+
+  onDecrease = () =>
+      dispatch([
+        'counter:DECREASE',
+        'counter2:DECREASE'
+      ]);
+  onTest     = () =>
+      dispatch('counter:TEST', 'This is a test');
+
+  onReset = () =>
+      initState([
+        'counter',
+        'counter2'
+      ]);
 
   render() {
     return (
         <div style={styles.container}>
           <div style={styles.column}>
-            <div id="click-area" style={styles.clickArea} onClick={this.onIncrease}>
+            <div style={styles.clickArea} onClick={this.onIncrease}>
               Click Area
             </div>
-            <button id="decrease" onClick={this.onDecrease}>Decrease</button>
-            <button id="reset" onClick={this.onReset}>Reset</button>
+            <button onClick={this.onDecrease}>Decrease</button>
+            <button onClick={this.onReset}>Reset</button>
+            <button onClick={this.onTest}>Test</button>
           </div>
           <div style={styles.column}>
-            Clicks: <span>{this.props.counter}</span>
+            Clicks: <span>{this.props.data}</span>
+            Clicks 2: <span>{this.props.counter2.value}</span>
           </div>
         </div>
     )
@@ -83,6 +106,6 @@ const styles = {
   }
 };
 
-export default connect('counter', Example);
+export default connect(['counter', 'counter2'], Counter, {counter: ({value}) => ({data: value})});
 
 ```
