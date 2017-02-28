@@ -49,6 +49,7 @@
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
     "enzyme": "^2.7.1",
+    "husky": "^0.13.1",
     "npm-run-all": "^4.0.2",
     "react-addons-test-utils": "^15.4.2",
     "rimraf": "^2.6.1",
