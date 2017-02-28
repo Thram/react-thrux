@@ -6,17 +6,19 @@ import {join} from 'path';
 const include = join(__dirname, 'src');
 
 export default {
-  entry  : './src/index',
-  output : {
+  entry    : './src/index',
+  output   : {
     path         : join(__dirname, 'dist'),
     libraryTarget: 'umd',
     library      : 'ReactThrux',
   },
-  devtool: 'source-map',
+  devtool  : 'source-map',
   externals: {
-    thrux: 'thrux'
+    thrux      : 'thrux',
+    react      : 'React',
+    "react-dom": 'ReactDOM',
   },
-  module : {
+  module   : {
     loaders: [
       {test: /\.js$/, loader: 'babel-loader', include}
     ]
