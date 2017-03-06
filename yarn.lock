@@ -2159,9 +2159,9 @@ https-proxy-agent@^1.0.0:
     debug "2"
     extend "3"
 
-husky@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-0.13.1.tgz#11efc6fc10e0ec4e789776f6582be37d71ba4ccf"
+husky@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-0.13.2.tgz#9dcf212f88e61dba36f17be1a202ed61ff6c0661"
   dependencies:
     chalk "^1.1.3"
     find-parent-dir "^0.3.0"
@@ -4009,9 +4009,9 @@ through@2, through@^2.3.6, through@~2.3, through@~2.3.1, through@~2.3.4, through
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
-thrux@^2.7.3:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/thrux/-/thrux-2.7.3.tgz#7b096a9647adb84964765076bffa43dca50caa71"
+thrux@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/thrux/-/thrux-3.0.1.tgz#c9b4d34e8196c6838a1435481f6548181c611f10"
   dependencies:
     es6-promise "^4.0.5"
     lodash "^4.17.4"
