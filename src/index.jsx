@@ -2,13 +2,13 @@
  * Created by thram on 21/01/17.
  */
 import React, { Component } from 'react';
-import forEach from 'lodash/forEach';
-import assign from 'lodash/assign';
-import reduce from 'lodash/reduce';
-import isFunction from 'lodash/isFunction';
-import isEqual from 'lodash/isEqual';
-import keys from 'lodash/keys';
-import pick from 'lodash/pick';
+import _forEach from 'lodash/forEach';
+import _assign from 'lodash/assign';
+import _reduce from 'lodash/reduce';
+import _isFunction from 'lodash/isFunction';
+import _isEqual from 'lodash/isEqual';
+import _keys from 'lodash/keys';
+import _pick from 'lodash/pick';
 import { observe, state, removeObserver } from 'thrux';
 
 
@@ -16,29 +16,29 @@ export const connect = (stateKey, ReactComponent, map) => class ThruxComponent e
   constructor(props) {
     super(props);
     this.observers = {};
-    this.state = assign({}, reduce(state([].concat(stateKey)), this.applyMap, {}));
+    this.state = _assign({}, _reduce(state([].concat(stateKey)), this.applyMap, {}));
   }
 
   componentDidMount = () => {
-    forEach([].concat(stateKey), (key) => {
+    _forEach([].concat(stateKey), (key) => {
       this.observers[key] = (stateValue) => {
         const newState = this.applyMap({}, stateValue, key);
-        if (!isEqual(pick(this.state, keys(newState)), newState)) this.setState(newState);
+        if (!_isEqual(_pick(this.state, _keys(newState)), newState)) this.setState(newState);
       };
       observe(key, this.observers[key]);
     });
   };
   componentWillUnmount = () => {
-    forEach(this.observers, (observer, key) => removeObserver(key, observer));
+    _forEach(this.observers, (observer, key) => removeObserver(key, observer));
     this.observers = {};
   };
   applyMap = (res, value, key) => {
     const result = res;
     if (map) {
-      if (isFunction(map)) {
-        assign(result, map(value));
+      if (_isFunction(map)) {
+        _assign(result, map(value));
       } else if (map[key]) {
-        assign(result, map[key](value));
+        _assign(result, map[key](value));
       } else {
         result[key] = value;
       }
