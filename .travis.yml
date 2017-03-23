@@ -13,6 +13,7 @@ node_js:
   - '4'
 before_script:
   - npm prune
+  - npm install lodash thrux react react-dom es6-promise
 script:
   - npm run build
 after_success:
