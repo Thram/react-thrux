@@ -15,8 +15,7 @@ export default {
   devtool: 'source-map',
   externals: {
     thrux: 'thrux',
-    react: 'React',
-    'react-dom': 'ReactDOM',
+    react: 'React'
   },
   module: {
     loaders: [

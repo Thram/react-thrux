@@ -12,7 +12,7 @@
     "lint:test": "eslint __test__ --ext .jsx,.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "precommit": "npm run test:single",
-    "dependencies": "npm install thrux react react-dom lodash",
+    "dependencies": "npm install thrux react lodash",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
     "build:main": "babel --out-dir dist src",
@@ -37,7 +37,6 @@
   "peerDependencies": {
     "lodash": "^4.17.4",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
     "thrux": "^3.0.6"
   },
   "devDependencies": {
@@ -62,6 +61,7 @@
     "husky": "^0.13.3",
     "npm-run-all": "^4.0.2",
     "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
     "rimraf": "^2.6.1",
     "semantic-release": "^6.3.2",
     "tape": "^4.6.3",
