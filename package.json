@@ -16,8 +16,8 @@
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
     "build:main": "babel --out-dir dist src",
-    "build:umd": "webpack --output-filename react-thrux.umd.js",
-    "build:umd.min": "webpack --output-filename react-thrux.umd.min.js -p"
+    "build:umd": "webpack",
+    "build:umd.min": "webpack -p --env.prod"
   },
   "repository": {
     "type": "git",
@@ -34,8 +34,10 @@
     "url": "https://github.com/Thram/react-thrux/issues"
   },
   "homepage": "https://github.com/Thram/react-thrux#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
   "peerDependencies": {
-    "lodash": "^4.17.4",
     "react": "^15.4.2",
     "thrux": "^3.0.6"
   },
