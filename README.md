@@ -3,7 +3,7 @@
 [![Travis build](https://img.shields.io/travis/Thram/react-thrux.svg?style=flat-square)](https://travis-ci.org/Thram/react-thrux)
 [![version](https://img.shields.io/npm/v/react-thrux.svg?style=flat-square)](https://www.npmjs.com/package/react-thrux)
 [![downloads](https://img.shields.io/npm/dt/react-thrux.svg?style=flat-square)](https://www.npmjs.com/package/react-thrux)
-[![MIT License](https://img.shields.io/npm/l/react-thrux.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![MIT License](https://img.shields.io/npm/l/react-thrux.svg?style=flat-square)](https://opensource.org/licenses/MIT) [![Greenkeeper badge](https://badges.greenkeeper.io/Thram/react-thrux.svg)](https://greenkeeper.io/)
 
 Connect [Thrux](https://github.com/Thram/thrux) state to a React component.
 
