@@ -17,7 +17,9 @@
     "build": "npm-run-all --parallel build:*",
     "build:main": "babel --out-dir dist src",
     "build:umd": "webpack",
-    "build:umd.min": "webpack -p --env.prod"
+    "build:umd.min": "webpack -p --env.prod",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -35,7 +37,8 @@
   },
   "homepage": "https://github.com/Thram/react-thrux#readme",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "snyk": "^1.316.2"
   },
   "peerDependencies": {
     "react-dom": "^15.5.4",
@@ -75,5 +78,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "snyk": true
 }
